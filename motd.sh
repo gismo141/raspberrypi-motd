@@ -12,9 +12,11 @@ WHITE=37
 
 clear
 
-function usage() {
-
-} 
+usage()
+{
+    echo "Usage : motd.sh"
+    exit
+}
 
 function color() {
   echo "\033[$1m$2\033[0m"
