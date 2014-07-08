@@ -1,12 +1,26 @@
 #!/bin/bash
 
+# standard colors
+BLACK=30
+RED=31
+GREEN=32
+YELLOW=33
+BLUE=34
+MAGENTA=35
+CYAN=36
+WHITE=37
+
 clear
 
-function color (){
-  echo "\e[$1m$2\e[0m"
+function usage() {
+
+} 
+
+function color() {
+  echo "\033[$1m$2\033[0m"
 }
 
-function extend (){
+function extend() {
   local str="$1"
   let spaces=60-${#1}
   while [ $spaces -gt 0 ]; do
@@ -16,7 +30,7 @@ function extend (){
   echo "$str"
 }
 
-function center (){
+function center() {
   local str="$1"
   let spacesLeft=(78-${#1})/2
   let spacesRight=78-spacesLeft-${#1}
@@ -33,7 +47,7 @@ function center (){
   echo "$str"
 }
 
-function sec2time (){
+function sec2time() {
   local input=$1
   
   if [ $input -lt 60 ]; then
@@ -65,11 +79,11 @@ function sec2time (){
   fi
 }
 
-borderColor=35
-headerLeafColor=32
-headerRaspberryColor=31
-greetingsColor=36
-statsLabelColor=33
+borderColor=$MAGENTA
+headerLeafColor=$GREEN
+headerRaspberryColor=$RED
+greetingsColor=$CYAN
+statsLabelColor=$YELLOW
 
 borderLine="━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 borderTopLine=$(color $borderColor "┏$borderLine┓")
