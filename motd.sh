@@ -129,22 +129,22 @@ else
 fi
 
 label1="$(extend "$login")"
-label1="$borderBar  $(color $statsLabelColor "Last Login....:") $label1$borderBar"
+label1="$borderBar  $(color $statsLabelColor "Last Login\t: ")$label1 $borderBar"
 
 uptime="$(sec2time $(cut -d "." -f 1 /proc/uptime))"
 uptime="$uptime ($(date -d "@"$(grep btime /proc/stat | cut -d " " -f 2) +"%d-%m-%Y %H:%M:%S"))"
 
 label2="$(extend "$uptime")"
-label2="$borderBar  $(color $statsLabelColor "Uptime........:") $label2$borderBar"
+label2="$borderBar  $(color $statsLabelColor "Uptime\t: ")$label2 $borderBar"
 
 label3="$(extend "$(free -m | awk 'NR==2 { printf "Total: %sMB, Used: %sMB, Free: %sMB",$2,$3,$4; }')")"
-label3="$borderBar  $(color $statsLabelColor "Memory........:") $label3$borderBar"
+label3="$borderBar  $(color $statsLabelColor "Memory\t: ")$label3 $borderBar"
 
 label4="$(extend "$(df -h ~ | awk 'NR==2 { printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4; }')")"
-label4="$borderBar  $(color $statsLabelColor "Home space....:") $label4$borderBar"
+label4="$borderBar  $(color $statsLabelColor "Home space\t: ")$label4 $borderBar"
 
 label5="$(extend "$(/opt/vc/bin/vcgencmd measure_temp | cut -c "6-9")ºC")"
-label5="$borderBar  $(color $statsLabelColor "Temperature...:") $label5$borderBar"
+label5="$borderBar  $(color $statsLabelColor "Temperature\t: ")$label5  $borderBar"
 
 stats="$label1\n$label2\n$label3\n$label4\n$label5"
 

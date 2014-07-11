@@ -1,0 +1,7 @@
+# Ignore everything ...
+*
+# ... except
+!motd.sh
+!README.md
+!LICENSE
+!.gitignore
